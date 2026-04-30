@@ -1,0 +1,91 @@
+JSON
+{
+  "customerName": "Anchal",
+  "phone": "9876543210",
+  "garments": [
+    { "type": "Shirt", "quantity": 2 },
+    { "type": "Saree", "quantity": 1 }
+  ]
+}
+{
+  "info": {
+    "name": "Laundry Order Management API",
+    "_postman_id": "12345-abcde",
+    "description": "API collection for Laundry Order Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerName\": \"Anchal\",\n  \"phone\": \"9876543210\",\n  \"garments\": [\n    { \"type\": \"Shirt\", \"quantity\": 2 },\n    { \"type\": \"Saree\", \"quantity\": 1 }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Get Orders",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Update Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"PROCESSING\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/orders/{{orderId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders", "{{orderId}}"]
+        }
+      }
+    },
+    {
+      "name": "Dashboard Summary",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/orders/dashboard/summary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["orders", "dashboard", "summary"]
+        }
+      }
+    }
+  ]
+}
